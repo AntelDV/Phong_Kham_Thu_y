@@ -1,5 +1,5 @@
 {
-  "name": "phong-kham-thu-y-frontend",
+  "name": "pet-clinic-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,17 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.6.2",
-    "bootstrap": "^5.3.2",
-    "framer-motion": "^10.16.5",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.9.1",
-    "react-bootstrap-icons": "^1.11.6",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0",
-    "react-toastify": "^11.0.5",
-    "recharts": "^3.6.0",
-    "sass": "^1.69.5"
+    "react-router-dom": "^6.18.0",
+    "sass": "^1.97.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

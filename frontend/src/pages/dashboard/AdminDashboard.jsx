@@ -1,125 +1,104 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
-// Import đầy đủ icon, bao gồm Receipt
-import { CurrencyDollar, People, CalendarCheck, ArrowUpRight, Receipt } from 'react-bootstrap-icons';
-import { motion } from 'framer-motion';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
+import React from 'react';
+import '../../styles/custom.scss';
 
 const AdminDashboard = () => {
-  const [stats, setStats] = useState({ income: 0, customers: 0, pending: 0, chartData: [], recentActivity: [] });
-
-  const fetchStats = async () => {
-    try {
-      const res = await axios.get('http://localhost:5000/api/invoices/stats');
-      setStats(res.data);
-    } catch (err) { console.error(err); }
-  };
-
-  useEffect(() => {
-    fetchStats();
-    
-    // Auto-Polling: Cập nhật mỗi 5 giây
-    const interval = setInterval(() => {
-        fetchStats();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const StatCard = ({ title, value, icon, color, delay }) => (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}>
-      <Card className="border-0 shadow-sm h-100 position-relative overflow-hidden" style={{ borderRadius: '20px' }}>
-        <div className={`position-absolute top-0 end-0 p-3 opacity-25 text-${color}`} style={{ fontSize: '4rem', transform: 'translate(10%, -10%)' }}>{icon}</div>
-        <Card.Body className="p-4">
-          <div className={`d-inline-flex p-3 rounded-circle bg-${color} bg-opacity-10 text-${color} mb-3`}>{icon}</div>
-          <h3 className="fw-bold mb-1 text-dark">{value}</h3>
-          <p className="text-muted mb-0">{title}</p>
-        </Card.Body>
-      </Card>
-    </motion.div>
-  );
+  const stats = [
+    { title: 'Tổng Khách', value: '1,240', icon: 'bi-people-fill', color: 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)' },
+    { title: 'Thú Cưng', value: '856', icon: 'bi-github', color: 'linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%)' },
+    { title: 'Lịch Hẹn', value: '15', icon: 'bi-calendar-check', color: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)' },
+    { title: 'Doanh Thu', value: '45M', icon: 'bi-currency-dollar', color: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)' },
+  ];
 
   return (
-    <div className="container-fluid">
-      <div className="mb-4">
-        <h2 className="fw-bold text-dark">Tổng Quan</h2>
-        <p className="text-muted">Chào mừng trở lại, Admin!</p>
+    <div className="container-fluid page-enter">
+      <div className="d-flex justify-content-between align-items-center mb-5">
+        <div>
+          <h2 className="fw-bold text-dark mb-1">Tổng Quan</h2>
+          <p className="text-muted">Số liệu hoạt động trong ngày hôm nay.</p>
+        </div>
+        <button className="btn-grad shadow-lg">
+          <i className="bi bi-printer-fill me-2"></i> Xuất Báo Cáo
+        </button>
       </div>
 
-      <Row className="g-4 mb-4">
-        <Col md={4}><StatCard title="Doanh thu tháng này" value={`${stats.income.toLocaleString()} ₫`} icon={<CurrencyDollar/>} color="success" delay={0.1}/></Col>
-        <Col md={4}><StatCard title="Tổng khách hàng" value={stats.customers} icon={<People/>} color="primary" delay={0.2}/></Col>
-        <Col md={4}><StatCard title="Lịch hẹn chờ khám" value={stats.pending} icon={<CalendarCheck/>} color="warning" delay={0.3}/></Col>
-      </Row>
+      {/* Stats Cards */}
+      <div className="row g-4 mb-5">
+        {stats.map((stat, index) => (
+          <div className="col-12 col-md-6 col-xl-3" key={index}>
+            <div className="glass-card p-4 text-white h-100 position-relative border-0" 
+                 style={{background: stat.color}}>
+              <div className="position-relative z-1">
+                 <h6 className="text-white text-uppercase opacity-75 mb-2 fw-bold">{stat.title}</h6>
+                 <h2 className="fw-bold mb-0 display-5">{stat.value}</h2>
+              </div>
+              <i className={`bi ${stat.icon} position-absolute`} 
+                 style={{fontSize: '6rem', right: '-20px', bottom: '-30px', opacity: 0.2, transform: 'rotate(-10deg)'}}></i>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <Row>
-        <Col lg={8}>
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.4 }}>
-            <Card className="border-0 shadow-sm p-4" style={{ borderRadius: '24px' }}>
-              <div className="d-flex justify-content-between align-items-center mb-4">
-                <h5 className="fw-bold text-dark">Biểu đồ doanh thu</h5>
-                <Badge bg="success" className="bg-opacity-10 text-success px-3 py-2 rounded-pill"><ArrowUpRight/> +12.5%</Badge>
-              </div>
-              <div style={{ height: '300px', width: '100%' }}>
-                <ResponsiveContainer>
-                  <AreaChart data={stats.chartData}>
-                    <defs>
-                      <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#20c997" stopOpacity={0.3}/>
-                        <stop offset="95%" stopColor="#20c997" stopOpacity={0}/>
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee"/>
-                    <XAxis dataKey="Date" axisLine={false} tickLine={false} tick={{fill: '#adb5bd'}} dy={10} />
-                    <YAxis axisLine={false} tickLine={false} tick={{fill: '#adb5bd'}} />
-                    <Tooltip contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)'}} />
-                    <Area type="monotone" dataKey="Revenue" stroke="#20c997" strokeWidth={3} fillOpacity={1} fill="url(#colorRev)" />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </div>
-            </Card>
-          </motion.div>
-        </Col>
-        <Col lg={4}>
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>
-            <Card className="border-0 shadow-sm h-100" style={{ borderRadius: '24px' }}>
-              <Card.Header className="bg-white border-0 pt-4 pb-0">
-                <h5 className="fw-bold">Hoạt động gần đây</h5>
-                <small className="text-muted fst-italic">Tự động cập nhật...</small>
-              </Card.Header>
-              <Card.Body>
-                {/* RENDER DỮ LIỆU THẬT */}
-                {stats.recentActivity && stats.recentActivity.length > 0 ? (
-                  stats.recentActivity.map((act, idx) => (
-                    <div className="d-flex gap-3 mb-4" key={idx}>
-                      <div className={`rounded-circle p-2 d-flex align-items-center justify-content-center ${act.Type === 'Booking' ? 'bg-primary' : 'bg-success'} bg-opacity-10`} style={{width: 40, height: 40}}>
-                        {act.Type === 'Booking' ? <CalendarCheck className="text-primary"/> : <Receipt className="text-success"/>}
-                      </div>
-                      <div>
-                        <p className="mb-0 fw-bold small">
-                          {act.Type === 'Booking' ? `Lịch hẹn: ${act.HoTen}` : `Thanh toán: ${act.HoTen}`}
-                        </p>
-                        <small className="text-muted">
-                          {new Date(act.NgayGioHen || act.NgayTao).toLocaleString('vi-VN')}
-                          {act.TongTien && ` - ${act.TongTien.toLocaleString()}đ`}
-                        </small>
-                      </div>
+      {/* Recent Activity Table */}
+      <div className="row g-4">
+        <div className="col-lg-8">
+          <div className="glass-card p-4 h-100">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+               <h5 className="fw-bold text-dark border-start border-4 border-success ps-3">Lịch Hẹn Gần Nhất</h5>
+               <button className="btn btn-sm btn-light text-success fw-bold">Xem tất cả</button>
+            </div>
+            <div className="table-responsive">
+              <table className="table-modern">
+                <thead>
+                  <tr>
+                    <th>Khách Hàng</th>
+                    <th>Dịch Vụ</th>
+                    <th>Thời Gian</th>
+                    <th>Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[1, 2, 3].map(i => (
+                    <tr key={i}>
+                      <td>
+                        <div className="d-flex align-items-center">
+                           <div className="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3" style={{width: 40, height: 40}}>
+                              <i className="bi bi-person-fill text-success"></i>
+                           </div>
+                           <span className="fw-bold">Nguyễn Văn A</span>
+                        </div>
+                      </td>
+                      <td><span className="badge bg-light text-dark border">Tiêm Vaccine</span></td>
+                      <td>09:00 AM</td>
+                      <td><span className="badge bg-success rounded-pill px-3">Hoàn thành</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Notifications */}
+        <div className="col-lg-4">
+           <div className="glass-card p-4 h-100">
+              <h5 className="fw-bold mb-4 border-start border-4 border-primary ps-3">Thông Báo</h5>
+              {[1, 2, 3, 4].map(i => (
+                 <div key={i} className="d-flex gap-3 mb-4 align-items-start">
+                    <div className="rounded-circle bg-primary bg-opacity-10 p-2 text-primary">
+                       <i className="bi bi-bell-fill"></i>
                     </div>
-                  ))
-                ) : (
-                    <p className="text-muted text-center small mt-3">Chưa có hoạt động mới</p>
-                )}
-              </Card.Body>
-            </Card>
-          </motion.div>
-        </Col>
-      </Row>
+                    <div>
+                       <h6 className="mb-1 fw-bold text-dark">Hệ thống cập nhật</h6>
+                       <p className="text-muted small mb-0">Đã đồng bộ dữ liệu mới...</p>
+                    </div>
+                    <small className="text-muted ms-auto">5p</small>
+                 </div>
+              ))}
+           </div>
+        </div>
+      </div>
     </div>
   );
 };
-
-// Component Badge nội bộ
-const Badge = ({children, className, bg}) => <span className={`badge bg-${bg} ${className}`}>{children}</span>;
 
 export default AdminDashboard;

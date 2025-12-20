@@ -1,12 +1,5 @@
 [
-  { "id": 1, "hoten": "Admin Quản Trị", "sdt": "0911111111", "chuc_vu": "Quản trị viên", "bang_cap": "Đại học", "trang_thai": "Đang làm việc" },
-  { "id": 2, "hoten": "BS. Nguyễn Y Đức", "sdt": "0911111112", "chuc_vu": "Bác sĩ", "bang_cap": "Thạc sĩ Thú y", "trang_thai": "Đang làm việc" },
-  { "id": 3, "hoten": "BS. Trần Cứu Chữa", "sdt": "0911111113", "chuc_vu": "Bác sĩ", "bang_cap": "Đại học Thú y", "trang_thai": "Đang làm việc" },
-  { "id": 4, "hoten": "Lễ Tân A", "sdt": "0911111114", "chuc_vu": "Lễ tân", "bang_cap": "Cao đẳng", "trang_thai": "Đang làm việc" },
-  { "id": 5, "hoten": "Lễ Tân B", "sdt": "0911111115", "chuc_vu": "Lễ tân", "bang_cap": "Đại học", "trang_thai": "Đang làm việc" },
-  { "id": 6, "hoten": "BS. Lê Chuyên Khoa", "sdt": "0911111116", "chuc_vu": "Bác sĩ", "bang_cap": "Tiến sĩ", "trang_thai": "Đang làm việc" },
-  { "id": 7, "hoten": "Trợ Lý C", "sdt": "0911111117", "chuc_vu": "Trợ lý", "bang_cap": "Trung cấp", "trang_thai": "Nghỉ phép" },
-  { "id": 8, "hoten": "Kế Toán D", "sdt": "0911111118", "chuc_vu": "Kế toán", "bang_cap": "Đại học", "trang_thai": "Đang làm việc" },
-  { "id": 9, "hoten": "BS. Phạm Phẫu Thuật", "sdt": "0911111119", "chuc_vu": "Bác sĩ", "bang_cap": "Chuyên khoa 1", "trang_thai": "Đang làm việc" },
-  { "id": 10, "hoten": "Bảo Vệ E", "sdt": "0911111120", "chuc_vu": "Bảo vệ", "bang_cap": "Phổ thông", "trang_thai": "Đang làm việc" }
+  { "id": 1, "hoten": "Admin Quản Trị", "sdt": "0911111111", "username": "admin", "mat_khau": "123456", "chuc_vu": "Quản trị viên", "bang_cap": "Đại học", "trang_thai": "Đang làm việc" },
+  { "id": 2, "hoten": "BS. Nguyễn Y Đức", "sdt": "0911111112", "username": "bsduc", "mat_khau": "123456", "chuc_vu": "Bác sĩ", "bang_cap": "Thạc sĩ Thú y", "trang_thai": "Đang làm việc" },
+  { "id": 3, "hoten": "Lễ Tân A", "sdt": "0911111114", "username": "letan1", "mat_khau": "123456", "chuc_vu": "Lễ tân", "bang_cap": "Cao đẳng", "trang_thai": "Đang làm việc" }
 ]

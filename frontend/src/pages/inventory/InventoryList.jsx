@@ -1,122 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Table, Badge, Button, Modal, Form, Row, Col } from 'react-bootstrap';
-import { BoxSeam, ExclamationTriangle, PlusLg } from 'react-bootstrap-icons';
-import { motion } from 'framer-motion';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import '../../styles/custom.scss';
 
 const InventoryList = () => {
   const [medicines, setMedicines] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [newMed, setNewMed] = useState({
-    TenThuoc: '', DonViTinh: 'Chai', SoLuongTon: 0, GiaNhap: 0, GiaBan: 0, HanSuDung: ''
-  });
-
+  
   useEffect(() => {
-    fetchMedicines();
+    fetch('http://localhost:5000/api/thuoc')
+      .then(res => res.json())
+      .then(data => setMedicines(data));
   }, []);
-
-  const fetchMedicines = async () => {
-    try {
-      const res = await axios.get('http://localhost:5000/api/medicines');
-      setMedicines(res.data);
-    } catch (err) { console.error(err); }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:5000/api/medicines', newMed);
-      setShowModal(false);
-      fetchMedicines();
-      setNewMed({ TenThuoc: '', DonViTinh: 'Chai', SoLuongTon: 0, GiaNhap: 0, GiaBan: 0, HanSuDung: '' });
-    } catch (err) { alert('Error'); }
-  };
 
   return (
     <div className="container-fluid">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2 className="fw-bold text-dark">Kho Thuốc & Vật Tư</h2>
-          <p className="text-muted">Quản lý nhập xuất tồn</p>
+      <div className="d-flex justify-content-between align-items-center mb-4 animate-slide-up">
+        <h2 className="fw-bold text-primary">Kho Thuốc & Vật Tư</h2>
+        <div className="d-flex gap-2">
+          <button className="btn btn-light text-primary fw-bold shadow-sm">
+            <i className="bi bi-download me-2"></i> Nhập Kho
+          </button>
+          <button className="btn-modern">
+            <i className="bi bi-upload me-2"></i> Xuất Kho
+          </button>
         </div>
-        <Button variant="primary" className="shadow-sm d-flex gap-2 align-items-center" onClick={() => setShowModal(true)}>
-          <PlusLg /> Nhập thuốc mới
-        </Button>
       </div>
 
-      <Row className="mb-4 g-3">
-        <Col md={3}>
-          <Card className="border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
-            <div className="bg-primary bg-opacity-10 p-3 rounded-circle text-primary"><BoxSeam size={24}/></div>
-            <div><h4 className="mb-0 fw-bold">{medicines.length}</h4><small className="text-muted">Tổng đầu thuốc</small></div>
-          </Card>
-        </Col>
-        <Col md={3}>
-          <Card className="border-0 shadow-sm p-3 d-flex flex-row align-items-center gap-3">
-            <div className="bg-warning bg-opacity-10 p-3 rounded-circle text-warning"><ExclamationTriangle size={24}/></div>
-            <div><h4 className="mb-0 fw-bold">{medicines.filter(m => m.SoLuongTon < 10).length}</h4><small className="text-muted">Sắp hết hàng</small></div>
-          </Card>
-        </Col>
-      </Row>
-
-      <Card className="border-0 shadow-sm" style={{ borderRadius: '20px', overflow: 'hidden' }}>
-        <Table hover responsive className="mb-0 align-middle">
-          <thead className="bg-light">
-            <tr>
-              <th className="ps-4 py-3">Mã</th>
-              <th>Tên thuốc</th>
-              <th>Đơn vị</th>
-              <th>Giá nhập</th>
-              <th>Giá bán</th>
-              <th>Tồn kho</th>
-              <th>Hạn sử dụng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {medicines.map((m, i) => (
-              <motion.tr key={m.MaThuoc} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.05 }}>
-                <td className="ps-4 fw-bold">#{m.MaThuoc}</td>
-                <td className="fw-semibold text-primary">{m.TenThuoc}</td>
-                <td><Badge bg="light" text="dark" className="border">{m.DonViTinh}</Badge></td>
-                <td>{m.GiaNhap.toLocaleString()} ₫</td>
-                <td className="fw-bold text-success">{m.GiaBan.toLocaleString()} ₫</td>
-                <td>
-                  {m.SoLuongTon < 10 ? 
-                    <Badge bg="danger">Sắp hết ({m.SoLuongTon})</Badge> : 
-                    <Badge bg="success" className="bg-opacity-75">{m.SoLuongTon}</Badge>
-                  }
-                </td>
-                <td>{new Date(m.HanSuDung).toLocaleDateString('vi-VN')}</td>
-              </motion.tr>
-            ))}
-          </tbody>
-        </Table>
-      </Card>
-
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered className="soft-modal">
-        <Modal.Header closeButton className="border-0"><Modal.Title className="fw-bold text-primary">Nhập Thuốc Mới</Modal.Title></Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3"><Form.Label>Tên thuốc</Form.Label><Form.Control required value={newMed.TenThuoc} onChange={e => setNewMed({...newMed, TenThuoc: e.target.value})} /></Form.Group>
-            <Row>
-              <Col md={6} className="mb-3"><Form.Label>Đơn vị tính</Form.Label>
-                <Form.Select value={newMed.DonViTinh} onChange={e => setNewMed({...newMed, DonViTinh: e.target.value})}>
-                  <option>Chai</option><option>Viên</option><option>Gói</option><option>Hộp</option><option>Ống</option>
-                </Form.Select>
-              </Col>
-              <Col md={6} className="mb-3"><Form.Label>Số lượng nhập</Form.Label><Form.Control type="number" required value={newMed.SoLuongTon} onChange={e => setNewMed({...newMed, SoLuongTon: e.target.value})} /></Col>
-              <Col md={6} className="mb-3"><Form.Label>Giá nhập</Form.Label><Form.Control type="number" required value={newMed.GiaNhap} onChange={e => setNewMed({...newMed, GiaNhap: e.target.value})} /></Col>
-              <Col md={6} className="mb-3"><Form.Label>Giá bán</Form.Label><Form.Control type="number" required value={newMed.GiaBan} onChange={e => setNewMed({...newMed, GiaBan: e.target.value})} /></Col>
-              <Col md={12} className="mb-3"><Form.Label>Hạn sử dụng</Form.Label><Form.Control type="date" required value={newMed.HanSuDung} onChange={e => setNewMed({...newMed, HanSuDung: e.target.value})} /></Col>
-            </Row>
-            <div className="d-flex justify-content-end gap-2 mt-3">
-              <Button variant="light" onClick={() => setShowModal(false)}>Hủy</Button>
-              <Button type="submit" variant="primary">Nhập kho</Button>
+      <div className="row g-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        {medicines.map((item, index) => (
+          <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={item.id}>
+            <div className="glass-panel h-100 p-0 overflow-hidden card-hover">
+              <div className="p-3 bg-white bg-opacity-40 border-bottom d-flex justify-content-between align-items-center">
+                <span className="badge bg-primary">{item.dvt}</span>
+                <small className="text-muted fw-bold">HSD: {item.han_sd}</small>
+              </div>
+              <div className="p-4 text-center">
+                <div className="mb-3 d-inline-block p-3 rounded-circle bg-success bg-opacity-10 text-success">
+                   <i className="bi bi-capsule fs-1"></i>
+                </div>
+                <h5 className="fw-bold text-dark mb-1">{item.ten_thuoc}</h5>
+                <p className="text-muted small mb-3">Mã: TH00{item.id}</p>
+                <h3 className="text-primary fw-bold mb-0">{item.so_luong_ton}</h3>
+                <small className="text-muted">Tồn kho</small>
+              </div>
+              <div className="p-3 bg-light bg-opacity-50 border-top d-flex justify-content-between">
+                <div>
+                   <small className="d-block text-muted">Giá nhập</small>
+                   <span className="fw-bold">{item.gia_nhap?.toLocaleString()}</span>
+                </div>
+                <div className="text-end">
+                   <small className="d-block text-muted">Giá xuất</small>
+                   <span className="fw-bold text-success">{item.gia_xuat?.toLocaleString()}</span>
+                </div>
+              </div>
             </div>
-          </Form>
-        </Modal.Body>
-      </Modal>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
+
 export default InventoryList;

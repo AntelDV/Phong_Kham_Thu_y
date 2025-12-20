@@ -1,159 +1,140 @@
-@import "bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+$primary: #00b09b;
+$secondary: #3b82f6;
+$pink: #ec4899;
+$dark: #1e293b;
+$light-bg: #f1f5f9;
+$card-bg: #ffffff;
+$radius: 16px;
 
-:root {
-  --primary-color: #00b09b; 
-  --secondary-color: #96c93d;
-  --sidebar-gradient: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); 
-  --accent-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
-  --bg-color: #f3f4f6;
-  --text-dark: #2d3748;
-  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
+/* 1. CẤU HÌNH CHUNG */
 body {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-dark);
-  min-height: 100vh;
+  background-color: $light-bg; /* Nền xám xanh nhạt để nổi thẻ trắng */
+  font-family: 'Segoe UI', sans-serif;
+  color: $dark;
+  overflow-x: hidden;
 }
 
-// === FIX LỖI SIDEBAR ===
-.sidebar-wrapper {
-  background: var(--sidebar-gradient);
-  color: white;
-  box-shadow: 4px 0 24px rgba(0,0,0,0.15);
-  min-height: 100vh; /* Quan trọng: Luôn cao ít nhất bằng màn hình */
-  height: 100%;      /* Kéo giãn theo nội dung cha nếu cha cao hơn màn hình */
-  
-  .nav-link {
-    color: rgba(255, 255, 255, 0.7) !important;
-    border-radius: 12px;
-    margin-bottom: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: white !important;
-      transform: translateX(5px);
-    }
-    
-    &.active-menu {
-      background: var(--accent-gradient) !important;
-      color: white !important;
-      box-shadow: 0 4px 12px rgba(0, 176, 155, 0.4);
-      font-weight: 600;
-    }
-  }
-
-  .sidebar-footer-btn {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
+/* 2. HIỆU ỨNG ANIMATION */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-// Card Style
-.card {
-  background: white;
-  border: none;
-  border-radius: 20px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease;
-  
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.page-enter {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. THẺ CARD NỔI BẬT (Khắc phục lỗi bị chìm) */
+.glass-card {
+  background: $card-bg;
+  border-radius: $radius;
+  /* Bóng đổ đậm hơn để tách biệt với nền */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+  border: 1px solid rgba(0,0,0,0.05); 
+  transition: all 0.3s ease;
+  overflow: hidden;
+
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 176, 155, 0.3);
   }
 }
 
-// Button Style
-.btn-primary {
-  background: var(--accent-gradient);
-  border: none;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 176, 155, 0.3);
+/* 4. SIDEBAR CỐ ĐỊNH */
+.sidebar-fixed {
+  width: 260px; /* Chiều rộng cố định */
+  min-width: 260px;
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.02);
   
-  &:hover {
-    filter: brightness(1.1);
-    transform: scale(1.02);
+  .nav-link {
+    color: #64748b;
+    font-weight: 600;
+    padding: 12px 16px;
+    margin: 4px 16px;
+    border-radius: 12px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Chống xuống dòng làm vỡ layout */
+    overflow: hidden;
+
+    i {
+      font-size: 1.25rem;
+      margin-right: 12px;
+      min-width: 24px; /* Cố định chiều rộng icon */
+      text-align: center;
+    }
+
+    &:hover {
+      background: #f0fdf4;
+      color: $primary;
+      padding-left: 20px; /* Hiệu ứng trượt nhẹ */
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(0, 176, 155, 0.3);
+    }
   }
 }
 
-.btn-outline-primary {
-  color: #00b09b;
-  border-color: #00b09b;
-  border-radius: 10px;
-  &:hover {
-    background: #00b09b;
-    color: white;
-  }
-}
-
-// Input Style
-.form-control, .form-select {
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 12px;
-  
-  &:focus {
-    background-color: white;
-    border-color: #00b09b;
-    box-shadow: 0 0 0 4px rgba(0, 176, 155, 0.1);
-  }
-}
-
-// Scrollbar
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1; 
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8; 
-}
-
-.modal-content {
-  border-radius: 24px;
+/* 5. BUTTON & INPUT */
+.btn-grad {
+  background-image: linear-gradient(to right, #00b09b 0%, #96c93d 51%, #00b09b 100%);
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
   border: none;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 700;
+  box-shadow: 0 0 20px #eee;
+
+  &:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
-.badge {
-  padding: 0.5em 1em;
-  font-weight: 600;
-  border-radius: 8px;
-}
+.table-modern {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
 
-// Ẩn khi in ấn
-@media print {
-  body * {
-    visibility: hidden;
+  th {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 700;
+    padding: 0 1rem;
+    border: none;
   }
-  #printable-area, #printable-area * {
-    visibility: visible;
-  }
-  #printable-area {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+
+  td {
     background: white;
-    color: black;
-    padding: 20px;
-  }
-  .no-print {
-    display: none !important;
+    padding: 1rem;
+    vertical-align: middle;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    
+    &:first-child { border-left: 1px solid #f1f5f9; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+    &:last-child { border-right: 1px solid #f1f5f9; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
   }
 }
