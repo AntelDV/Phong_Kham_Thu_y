@@ -1,0 +1,12 @@
+[
+  { "id": 1, "thu_cung_id": 1, "bac_si_id": 2, "ngay_kham": "2025-03-01", "chan_doan": "Sức khỏe bình thường", "ket_luan": "Tiếp tục theo dõi" },
+  { "id": 2, "thu_cung_id": 2, "bac_si_id": 3, "ngay_kham": "2025-03-01", "chan_doan": "Sốt nhẹ sau tiêm", "ket_luan": "Cần nghỉ ngơi" },
+  { "id": 3, "thu_cung_id": 5, "bac_si_id": 9, "ngay_kham": "2025-03-03", "chan_doan": "Rối loạn tiêu hóa", "ket_luan": "Cần uống men tiêu hóa" },
+  { "id": 4, "thu_cung_id": 7, "bac_si_id": 6, "ngay_kham": "2025-02-28", "chan_doan": "Thoái hóa khớp", "ket_luan": "Hạn chế vận động mạnh" },
+  { "id": 5, "thu_cung_id": 3, "bac_si_id": 2, "ngay_kham": "2025-02-25", "chan_doan": "Nấm da", "ket_luan": "Cần bôi thuốc và tắm nấm" },
+  { "id": 6, "thu_cung_id": 4, "bac_si_id": 3, "ngay_kham": "2025-02-20", "chan_doan": "Viêm tai giữa", "ket_luan": "Nhỏ thuốc tai hàng ngày" },
+  { "id": 7, "thu_cung_id": 6, "bac_si_id": 6, "ngay_kham": "2025-02-15", "chan_doan": "Viêm kết mạc", "ket_luan": "Tránh bụi bẩn" },
+  { "id": 8, "thu_cung_id": 8, "bac_si_id": 9, "ngay_kham": "2025-02-10", "chan_doan": "Vết thương phần mềm", "ket_luan": "Đã khâu vết thương" },
+  { "id": 9, "thu_cung_id": 9, "bac_si_id": 2, "ngay_kham": "2025-02-05", "chan_doan": "Giun sán", "ket_luan": "Tẩy giun định kỳ" },
+  { "id": 10, "thu_cung_id": 10, "bac_si_id": 3, "ngay_kham": "2025-02-01", "chan_doan": "Viêm phổi nhẹ", "ket_luan": "Giữ ấm, uống thuốc" }
+]

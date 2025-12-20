@@ -1,0 +1,12 @@
+[
+  { "id": 1, "hoa_don_id": 1, "loai_muc": "Dịch vụ", "muc_id": 1, "so_luong": 1, "don_gia": 100000, "thanh_tien": 100000 },
+  { "id": 2, "hoa_don_id": 2, "loai_muc": "Dịch vụ", "muc_id": 2, "so_luong": 1, "don_gia": 250000, "thanh_tien": 250000 },
+  { "id": 3, "hoa_don_id": 3, "loai_muc": "Dịch vụ", "muc_id": 1, "so_luong": 1, "don_gia": 100000, "thanh_tien": 100000 },
+  { "id": 4, "hoa_don_id": 3, "loai_muc": "Thuốc", "muc_id": 7, "so_luong": 5, "don_gia": 10000, "thanh_tien": 50000 },
+  { "id": 5, "hoa_don_id": 4, "loai_muc": "Dịch vụ", "muc_id": 7, "so_luong": 1, "don_gia": 250000, "thanh_tien": 250000 },
+  { "id": 6, "hoa_don_id": 4, "loai_muc": "Thuốc", "muc_id": 2, "so_luong": 10, "don_gia": 5000, "thanh_tien": 50000 },
+  { "id": 7, "hoa_don_id": 5, "loai_muc": "Dịch vụ", "muc_id": 5, "so_luong": 1, "don_gia": 150000, "thanh_tien": 150000 },
+  { "id": 8, "hoa_don_id": 5, "loai_muc": "Thuốc", "muc_id": 1, "so_luong": 1, "don_gia": 50000, "thanh_tien": 50000 },
+  { "id": 9, "hoa_don_id": 8, "loai_muc": "Dịch vụ", "muc_id": 8, "so_luong": 1, "don_gia": 500000, "thanh_tien": 500000 },
+  { "id": 10, "hoa_don_id": 10, "loai_muc": "Thuốc", "muc_id": 5, "so_luong": 7, "don_gia": 30000, "thanh_tien": 210000 }
+]

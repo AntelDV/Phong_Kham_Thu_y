@@ -1,0 +1,12 @@
+[
+  { "id": 1, "thu_cung_id": 1, "bac_si_id": 2, "thoi_gian": "2025-03-01 09:00:00", "loai_hen": "Khám bệnh", "trang_thai": "Đã hoàn thành", "ghi_chu": "Khám định kỳ" },
+  { "id": 2, "thu_cung_id": 2, "bac_si_id": 3, "thoi_gian": "2025-03-01 10:00:00", "loai_hen": "Tiêm chủng", "trang_thai": "Đã hoàn thành", "ghi_chu": "Tiêm mũi nhắc lại" },
+  { "id": 3, "thu_cung_id": 3, "bac_si_id": 6, "thoi_gian": "2025-03-02 08:30:00", "loai_hen": "Spa", "trang_thai": "Đang chờ", "ghi_chu": "Cắt tỉa lông" },
+  { "id": 4, "thu_cung_id": 4, "bac_si_id": 2, "thoi_gian": "2025-03-02 14:00:00", "loai_hen": "Phẫu thuật", "trang_thai": "Đã hủy", "ghi_chu": "Khách bận" },
+  { "id": 5, "thu_cung_id": 5, "bac_si_id": 9, "thoi_gian": "2025-03-03 09:30:00", "loai_hen": "Khám bệnh", "trang_thai": "Đã hoàn thành", "ghi_chu": "Mèo bỏ ăn" },
+  { "id": 6, "thu_cung_id": 6, "bac_si_id": 3, "thoi_gian": "2025-03-04 15:00:00", "loai_hen": "Khám bệnh", "trang_thai": "Đang chờ", "ghi_chu": "Kiểm tra mắt" },
+  { "id": 7, "thu_cung_id": 7, "bac_si_id": 6, "thoi_gian": "2025-03-05 10:00:00", "loai_hen": "Tái khám", "trang_thai": "Đang chờ", "ghi_chu": "Kiểm tra chân sau" },
+  { "id": 8, "thu_cung_id": 8, "bac_si_id": 2, "thoi_gian": "2025-03-06 09:00:00", "loai_hen": "Tiêm chủng", "trang_thai": "Đang chờ", "ghi_chu": "Tiêm dại" },
+  { "id": 9, "thu_cung_id": 9, "bac_si_id": 9, "thoi_gian": "2025-03-07 16:00:00", "loai_hen": "Phẫu thuật", "trang_thai": "Đang chờ", "ghi_chu": "Triệt sản" },
+  { "id": 10, "thu_cung_id": 10, "bac_si_id": 3, "thoi_gian": "2025-03-08 08:00:00", "loai_hen": "Spa", "trang_thai": "Đang chờ", "ghi_chu": "Tắm gội" }
+]

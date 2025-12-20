@@ -1,0 +1,12 @@
+[
+  { "id": 1, "ten_dv": "Khám lâm sàng", "loai_dv": "Khám bệnh", "gia": 100000, "mo_ta": "Kiểm tra sức khỏe tổng quát" },
+  { "id": 2, "ten_dv": "Tiêm vaccine 5 bệnh", "loai_dv": "Tiêm chủng", "gia": 250000, "mo_ta": "Vaccine phòng 5 bệnh phổ biến cho chó" },
+  { "id": 3, "ten_dv": "Tiêm vaccine dại", "loai_dv": "Tiêm chủng", "gia": 50000, "mo_ta": "Phòng bệnh dại" },
+  { "id": 4, "ten_dv": "Cắt tỉa lông (Spa)", "loai_dv": "Spa", "gia": 300000, "mo_ta": "Cắt tỉa tạo kiểu lông" },
+  { "id": 5, "ten_dv": "Tắm vệ sinh", "loai_dv": "Spa", "gia": 150000, "mo_ta": "Tắm, sấy, vệ sinh tai móng" },
+  { "id": 6, "ten_dv": "Siêu âm thai", "loai_dv": "Chẩn đoán", "gia": 200000, "mo_ta": "Siêu âm kiểm tra thai" },
+  { "id": 7, "ten_dv": "X-Quang xương", "loai_dv": "Chẩn đoán", "gia": 250000, "mo_ta": "Chụp X-quang gãy xương" },
+  { "id": 8, "ten_dv": "Phẫu thuật triệt sản (Đực)", "loai_dv": "Phẫu thuật", "gia": 500000, "mo_ta": "Triệt sản chó/mèo đực" },
+  { "id": 9, "ten_dv": "Phẫu thuật triệt sản (Cái)", "loai_dv": "Phẫu thuật", "gia": 800000, "mo_ta": "Triệt sản chó/mèo cái" },
+  { "id": 10, "ten_dv": "Lưu chuồng (Ngày)", "loai_dv": "Lưu trú", "gia": 100000, "mo_ta": "Phí giữ thú cưng qua đêm" }
+]

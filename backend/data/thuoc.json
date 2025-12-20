@@ -1,0 +1,12 @@
+[
+  { "id": 1, "ten_thuoc": "Bio-Genta", "dvt": "Lọ", "so_luong_ton": 100, "gia_xuat": 50000, "han_sd": "2026-12-31" },
+  { "id": 2, "ten_thuoc": "Canxi (Calciphos)", "dvt": "Viên", "so_luong_ton": 500, "gia_xuat": 5000, "han_sd": "2026-06-30" },
+  { "id": 3, "ten_thuoc": "Thuốc tẩy giun Sanpet", "dvt": "Viên", "so_luong_ton": 200, "gia_xuat": 20000, "han_sd": "2027-01-01" },
+  { "id": 4, "ten_thuoc": "Vitamin B Complex", "dvt": "Lọ", "so_luong_ton": 50, "gia_xuat": 80000, "han_sd": "2025-12-12" },
+  { "id": 5, "ten_thuoc": "Kháng sinh Amoxicillin", "dvt": "Vỉ", "so_luong_ton": 100, "gia_xuat": 30000, "han_sd": "2026-05-20" },
+  { "id": 6, "ten_thuoc": "Thuốc trị ve rận NexGard", "dvt": "Viên", "so_luong_ton": 50, "gia_xuat": 150000, "han_sd": "2026-08-15" },
+  { "id": 7, "ten_thuoc": "Men tiêu hóa", "dvt": "Gói", "so_luong_ton": 300, "gia_xuat": 10000, "han_sd": "2025-10-10" },
+  { "id": 8, "ten_thuoc": "Dung dịch sát trùng Betadine", "dvt": "Chai", "so_luong_ton": 80, "gia_xuat": 40000, "han_sd": "2027-02-28" },
+  { "id": 9, "ten_thuoc": "Thuốc nhỏ mắt Bio-Gentadrop", "dvt": "Lọ", "so_luong_ton": 120, "gia_xuat": 25000, "han_sd": "2026-03-15" },
+  { "id": 10, "ten_thuoc": "Dầu cá Omega 3", "dvt": "Hộp", "so_luong_ton": 60, "gia_xuat": 200000, "han_sd": "2026-11-20" }
+]

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "benh_an_id": 3, "thuoc_id": 7, "so_luong": 5, "cach_dung": "Trộn thức ăn", "lieu_luong": "1 gói/ngày" },
+  { "id": 2, "benh_an_id": 4, "thuoc_id": 2, "so_luong": 10, "cach_dung": "Uống trực tiếp", "lieu_luong": "1 viên/ngày" },
+  { "id": 3, "benh_an_id": 5, "thuoc_id": 1, "so_luong": 1, "cach_dung": "Bôi da", "lieu_luong": "2 lần/ngày" },
+  { "id": 4, "benh_an_id": 6, "thuoc_id": 9, "so_luong": 1, "cach_dung": "Nhỏ tai", "lieu_luong": "3 giọt/lần" },
+  { "id": 5, "benh_an_id": 8, "thuoc_id": 8, "so_luong": 1, "cach_dung": "Rửa vết thương", "lieu_luong": "Hàng ngày" },
+  { "id": 6, "benh_an_id": 8, "thuoc_id": 5, "so_luong": 5, "cach_dung": "Uống", "lieu_luong": "2 viên/ngày" },
+  { "id": 7, "benh_an_id": 9, "thuoc_id": 3, "so_luong": 1, "cach_dung": "Uống", "lieu_luong": "1 lần duy nhất" },
+  { "id": 8, "benh_an_id": 10, "thuoc_id": 5, "so_luong": 7, "cach_dung": "Uống", "lieu_luong": "2 viên/ngày" },
+  { "id": 9, "benh_an_id": 10, "thuoc_id": 4, "so_luong": 1, "cach_dung": "Uống", "lieu_luong": "1ml/ngày" },
+  { "id": 10, "benh_an_id": 7, "thuoc_id": 9, "so_luong": 1, "cach_dung": "Nhỏ mắt", "lieu_luong": "2 giọt/lần" }
+]

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "khach_hang_id": 1, "nhan_vien_id": 4, "ngay_tao": "2025-03-01", "tong_tien": 100000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 2, "khach_hang_id": 2, "nhan_vien_id": 4, "ngay_tao": "2025-03-01", "tong_tien": 250000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Chuyển khoản" },
+  { "id": 3, "khach_hang_id": 5, "nhan_vien_id": 5, "ngay_tao": "2025-03-03", "tong_tien": 150000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 4, "khach_hang_id": 7, "nhan_vien_id": 5, "ngay_tao": "2025-02-28", "tong_tien": 300000, "trang_thai": "Chưa thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 5, "khach_hang_id": 3, "nhan_vien_id": 4, "ngay_tao": "2025-02-25", "tong_tien": 200000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Ví điện tử" },
+  { "id": 6, "khach_hang_id": 4, "nhan_vien_id": 5, "ngay_tao": "2025-02-20", "tong_tien": 125000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 7, "khach_hang_id": 6, "nhan_vien_id": 4, "ngay_tao": "2025-02-15", "tong_tien": 100000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Chuyển khoản" },
+  { "id": 8, "khach_hang_id": 8, "nhan_vien_id": 4, "ngay_tao": "2025-02-10", "tong_tien": 500000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 9, "khach_hang_id": 9, "nhan_vien_id": 5, "ngay_tao": "2025-02-05", "tong_tien": 20000, "trang_thai": "Đã thanh toán", "hinh_thuc": "Tiền mặt" },
+  { "id": 10, "khach_hang_id": 10, "nhan_vien_id": 4, "ngay_tao": "2025-02-01", "tong_tien": 300000, "trang_thai": "Chưa thanh toán", "hinh_thuc": "Chuyển khoản" }
+]

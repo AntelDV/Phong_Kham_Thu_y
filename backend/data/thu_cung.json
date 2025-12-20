@@ -1,0 +1,12 @@
+[
+  { "id": 1, "khach_hang_id": 1, "ten": "Milu", "loai": "Chó", "giong": "Corgi", "tuoi": 2, "can_nang": 12.5, "tieu_su_benh": "Không" },
+  { "id": 2, "khach_hang_id": 2, "ten": "Mimi", "loai": "Mèo", "giong": "Mướp", "tuoi": 1.5, "can_nang": 3.2, "tieu_su_benh": "Dị ứng hải sản" },
+  { "id": 3, "khach_hang_id": 3, "ten": "Lu", "loai": "Chó", "giong": "Poodle", "tuoi": 3, "can_nang": 5.0, "tieu_su_benh": "Viêm da cơ địa" },
+  { "id": 4, "khach_hang_id": 4, "ten": "Kiki", "loai": "Chó", "giong": "Golden", "tuoi": 1, "can_nang": 25.0, "tieu_su_benh": "Không" },
+  { "id": 5, "khach_hang_id": 5, "ten": "Mập", "loai": "Mèo", "giong": "Anh lông ngắn", "tuoi": 4, "can_nang": 6.5, "tieu_su_benh": "Béo phì" },
+  { "id": 6, "khach_hang_id": 6, "ten": "Xám", "loai": "Mèo", "giong": "Ba Tư", "tuoi": 2, "can_nang": 4.0, "tieu_su_benh": "Hay chảy nước mắt" },
+  { "id": 7, "khach_hang_id": 7, "ten": "Béc", "loai": "Chó", "giong": "Becgie", "tuoi": 5, "can_nang": 35.0, "tieu_su_benh": "Yếu chân sau" },
+  { "id": 8, "khach_hang_id": 8, "ten": "Nâu", "loai": "Chó", "giong": "Phú Quốc", "tuoi": 2.5, "can_nang": 18.0, "tieu_su_benh": "Không" },
+  { "id": 9, "khach_hang_id": 9, "ten": "Trắng", "loai": "Mèo", "giong": "Tai cụp", "tuoi": 1, "can_nang": 3.5, "tieu_su_benh": "Không" },
+  { "id": 10, "khach_hang_id": 10, "ten": "Vàng", "loai": "Chó", "giong": "Shiba", "tuoi": 2, "can_nang": 11.0, "tieu_su_benh": "Không" }
+]
